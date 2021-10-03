@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FreePass</title>
+    <script>
+
+        const create = () => {
+
+            let name = document.getElementById('name').value;
+            let bdate = document.getElementById('birth.date').value;
+            let bplace = document.getElementById('birth.place').value;
+            let job = document.getElementById('job').value;
+            let address = document.getElementById('address').value;
+            let city = document.getElementById('city').value;
+            let zone = (Math.floor(Math.random() * 300) + 100).toString().padStart(3, '0');
+
+            let s = name + ";"
+                + bdate + ";"
+                + bplace + ";"
+                + job + ";"
+                + address + ";"
+                + city + ";"
+                + zone;
+
+            encoded = btoa(s);
+            url = "https://takefreepass.herokuapp.com/" + encoded;
+            alert(url);
+            window.location.replace(url);
+
+        }
+
+
+
+    </script>
+</head>
+<body>
+You freedom is priceless!
+<form>
+    <table>
+        <tr><td>Name</td>
+            <td colspan="3"><input id="name" placeholder="name"></td></tr>
+        <tr><td>Birthday</td>
+            <td><input id="birth.date" placeholder="dd.mm.yyyy"></td>
+            <td>Place</td>
+            <td><input id="birth.place" placeholder="place"></td>
+        </tr>
+        <tr><td>Job</td>
+            <td><input id="job" placeholder="job"></td></tr>
+        <tr><td>Address</td>
+            <td><input id="address" placeholder="address"></td></tr>
+        <tr><td>City</td>
+            <td><input id="city" placeholder="city"></td></tr>
+    </table>
+    <button onclick="create()">Make me Free! Again!</button>
+</form>
+</body>
+</html>
